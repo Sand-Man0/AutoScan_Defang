@@ -32,7 +32,26 @@
 
   </div>
 </div>
+      <!-- Report Format Section -->
+        <div>
+            <label for="reportFormat">Report Format:</label>
+            <select id="reportFormat" asp-for="ReportFormat">
+                <option value="">Select Report Format</option>
+                <option value="PDF">PDF</option>
+                <option value="Excel">Excel</option>
+                <option value="Word">Word</option>
+            </select>
+        </div>
 
+
+        <div>
+        <!-- Add Recipient Section -->
+        <div class="setting-item">
+          <label for="recipient-input">Add Recipient:</label>
+          <input type="text" id="recipient-input" placeholder="Enter recipient email">
+          <button id="add-recipient-btn">Add</button>
+      </div>
+  
 <script src="script.js"></script>
 </body>
 </html>
