@@ -10,6 +10,12 @@ def yes_no_prompt(prompt):
         else:
             print("Please enter 'y' for yes or 'n' for no.")
 
+def run_subprocess(command):
+       try:
+        result = subprocess.run(command, check=True, text=True, capture_output=True)
+        print(result.stdout)
+    except subprocess.CalledProcessError as e:
+        print("An error occurred:", e.stderr)
 
 if yes_no_prompt("Do you want to get the dockerfile from github? "):
     import os
@@ -18,13 +24,8 @@ if yes_no_prompt("Do you want to get the dockerfile from github? "):
     command = [
         "sudo", "wget", "https://raw.githubusercontent.com/Blipblopblopblop/caldera/master/Dockerfile"
     ]
-    
-    # Run the command
-    try:
-        result = subprocess.run(command, check=True, text=True, capture_output=True)
-        print("Command output:", result.stdout)
-    except subprocess.CalledProcessError as e:
-        print("An error occurred:", e.stderr)
+    run_subprocess(command)
+ 
 
 if yes_no_prompt(" do you want to change the host contact address?" ):
         
@@ -73,10 +74,14 @@ if yes_no_prompt(" do you want to start the docker build? " ):
         "--build-arg", "WIN_BUILD=true",
         "-t", "caldera:latest"
     ]
-    
-    # Run the Docker command
-    try:
-        result = subprocess.run(command, check=True, text=True, capture_output=True)
-        print("Command output:", result.stdout)
-    except subprocess.CalledProcessError as e:
-        print("An error occurred:", e.stderr)
+    run_subprocess(command)
+if yes_no_prompt("Do you want to run the docker image? " ):
+
+    # Define the Docker command
+    command = [
+        "sudo", "docker", "run", "-p",
+        "8888:8888", "caldera:latest",
+        "--build",
+    ]
+    run_subprocess(command)
+
