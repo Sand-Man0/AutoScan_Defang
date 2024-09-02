@@ -7,7 +7,7 @@ with open("./conf/local.yml", 'r') as file:
 
 # Get the new contact address from user input
 contactip = input("Please specify the contact IP address you want to use to access Caldera. Note that it if you want to access is web app it cannot be 0.0.0.0 ")
-contacthttp = "http://"+contactip
+contacthttp = "http://"+contactip+":8888"
 
 # Define regex patterns with capturing groups
 pattern1 = r"app\.frontend\.api_base_url:\s*(\S+)"
