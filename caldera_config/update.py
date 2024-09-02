@@ -10,6 +10,20 @@ def yes_no_prompt(prompt):
         else:
             print("Please enter 'y' for yes or 'n' for no.")
 
+
+if yes_no_prompt("Do you want to get the dockerfile from github? "):
+    
+    command = [
+        "sudo", "wget", "https://raw.githubusercontent.com/Blipblopblopblop/caldera/master/Dockerfile"
+    ]
+    
+    # Run the command
+    try:
+        result = subprocess.run(command, check=True, text=True, capture_output=True)
+        print("Command output:", result.stdout)
+    except subprocess.CalledProcessError as e:
+        print("An error occurred:", e.stderr)
+
 if yes_no_prompt(" do you want to change the host contact address?" ):
         
     # Read the content from the file
@@ -50,7 +64,7 @@ if yes_no_prompt(" do you want to change the host contact address?" ):
     
     
 if yes_no_prompt(" do you want to start the docker build? " ):
-
+    println("please wait patiently this will take a while ")
     # Define the Docker command
     command = [
         "sudo", "docker", "build", ".",
