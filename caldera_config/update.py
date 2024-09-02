@@ -66,7 +66,7 @@ if yes_no_prompt(" do you want to change the host contact address?" ):
     
     
 if yes_no_prompt(" do you want to start the docker build? " ):
-    println("please wait patiently this will take a while ")
+    print("please wait patiently this will take a while ")
     # Define the Docker command
     command = [
         "sudo", "docker", "build", ".",
