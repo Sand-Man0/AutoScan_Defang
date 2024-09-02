@@ -12,6 +12,8 @@ def yes_no_prompt(prompt):
 
 
 if yes_no_prompt("Do you want to get the dockerfile from github? "):
+    import os
+    os.remove("Dockerfile")
     
     command = [
         "sudo", "wget", "https://raw.githubusercontent.com/Blipblopblopblop/caldera/master/Dockerfile"
