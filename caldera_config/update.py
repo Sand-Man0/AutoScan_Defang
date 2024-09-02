@@ -11,7 +11,7 @@ def yes_no_prompt(prompt):
             print("Please enter 'y' for yes or 'n' for no.")
 
 def run_subprocess(command):
-       try:
+    try:
         result = subprocess.run(command, check=True, text=True, capture_output=True)
         print(result.stdout)
     except subprocess.CalledProcessError as e:
