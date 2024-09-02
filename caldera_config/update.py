@@ -32,7 +32,7 @@ if match2:
 else:
     print("Contact HTTP pattern not found.")
 
-print(content)
+
 with open('./conf/local.yml', 'w') as file:
     file.write(content)
 
