@@ -100,36 +100,3 @@ body {
 .form-group button:hover {
     background-color: #555;
 }
-
-.date-input {
-    font-size: 18px; 
-    font-family: Arial, sans-serif; 
-    background-color: #f0f0f0; 
-    border: 1px solid #000;
-    padding: 10px;
-    border-radius: 10px;
-  }
-
-/* Reports section */
-.download-block {
-    background-color: #f7f7f7;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .download-block table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .download-block th, .download-block td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .download-block th {
-    background-color: #f0f0f0;
-  }
