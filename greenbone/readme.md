@@ -29,3 +29,5 @@ start/restart :
 ```
 sudo docker compose -f docker-compose.yml -p greenbone-community-edition up -d
 ```
+change password for admin user:
+sudo docker exec -u gvmd greenbone-community-edition-gvmd-1 gvmd --user=admin --new-password='CHANGETHIS'
