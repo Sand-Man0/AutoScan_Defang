@@ -1,16 +1,8 @@
-services:
-  vulnerability-tests:
-    image: greenbone/vulnerability-tests
-    environment:
-      STORAGE_PATH: /var/lib/openvas/22.04/vt-data/nasl
-    volumes:
-      - vt_data_vol:/mnt
-
   notus-data:
     image: greenbone/notus-data
-    volumes:
+    volumes:reenbone/vulnerability-tests
       - notus_data_vol:/mnt
-
+      STORAGE_PATH: /var/lib/openvas/22.04/vt-data/nasl
   scap-data:
     image: greenbone/scap-data
     volumes:
@@ -61,6 +53,10 @@ services:
   gvmd:
     image: greenbone/gvmd:stable
     restart: on-failure
+    environment:
+      - GVMD_ARGS:"--port=9390 --listen=0.0.0.0"
+    ports:
+      - 9390:9390
     volumes:
       - gvmd_data_vol:/var/lib/gvm
       - scap_data_vol:/var/lib/gvm/scap-data/
@@ -88,10 +84,17 @@ services:
   gsa:
     image: greenbone/gsa:stable
     restart: on-failure
+    environment:
+    - GSAD_ARGS=--no-redirect --mlisten=gvmd --mport=9390 --http-sts --gnutls-priorities=SECURE256:-VERS-TLS-ALL:+VERS-TLS1.2:+VERS-TLS1.3
     ports:
-      - 127.0.0.1:9392:80
+    - 0.0.0.0:9394:443
+    - 9393:443
     volumes:
-      - gvmd_socket_vol:/run/gvmd
+# Move the private key into the container. Replace <username> with your own.
+    - /home/ali/.ssl/serverkey.pem:/var/lib/gvm/private/CA/serverkey.pem
+    # Move the certificate into the container Replace <username> with your own.
+    - /home/ali/.ssl/servercert.pem:/var/lib/gvm/CA/servercert.pem
+    - gvmd_socket_vol:/run/gvmd
     depends_on:
       - gvmd
   # Sets log level of openvas to the set LOG_LEVEL within the env
