@@ -6,15 +6,15 @@ curl -f -L https://raw.githubusercontent.com/Blipblopblopblop/AutoScan/refs/head
 ```
 pull:
 ```
-docker compose -f docker-compose.yml -p greenbone-community-edition pull
+sudo docker compose -f docker-compose.yml -p greenbone-community-edition pull
 ```
 start/restart :
 ```
-docker compose -f docker-compose.yml -p greenbone-community-edition up -d
+sudo docker compose -f docker-compose.yml -p greenbone-community-edition up -d
 ```
 2# get cli access into gvmd
 
-as root
+as root user
 change whole directory into rwx for gvmd: 
 ``` 
 chmod -R 777 / &
