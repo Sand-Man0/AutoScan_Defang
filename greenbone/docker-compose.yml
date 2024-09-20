@@ -1,6 +1,6 @@
   notus-data:
     image: greenbone/notus-data
-    volumes:reenbone/vulnerability-tests
+    volumes: greenbone/vulnerability-tests
       - notus_data_vol:/mnt
       STORAGE_PATH: /var/lib/openvas/22.04/vt-data/nasl
   scap-data:
