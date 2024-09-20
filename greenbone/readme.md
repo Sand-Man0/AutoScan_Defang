@@ -1,4 +1,4 @@
-#1 pull and run docker fileL
+#1 pull and run docker file
 
 Install compose file:
 ```
@@ -6,11 +6,11 @@ curl -f -L https://raw.githubusercontent.com/Blipblopblopblop/AutoScan/refs/head
 ```
 pull:
 ```
-docker compose -f $DOWNLOAD_DIR/docker-compose.yml -p greenbone-community-edition pull
+docker compose -f docker-compose.yml -p greenbone-community-edition pull
 ```
 start/restart :
 ```
-docker compose -f $DOWNLOAD_DIR/docker-compose.yml -p greenbone-community-edition up -d
+docker compose -f docker-compose.yml -p greenbone-community-edition up -d
 ```
 2# get cli access into gvmd
 
