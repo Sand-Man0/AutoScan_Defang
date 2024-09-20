@@ -1,5 +1,16 @@
 #1 pull and run docker file
-
+install compose file:
+```
+curl -f -L https://raw.githubusercontent.com/Blipblopblopblop/AutoScan/refs/heads/main/greenbone/docker-compose.yml -o docker-compose.yml
+```
+pull:
+```
+docker compose -f $DOWNLOAD_DIR/docker-compose.yml -p greenbone-community-edition pull
+```
+start/restart :
+```
+docker compose -f $DOWNLOAD_DIR/docker-compose.yml -p greenbone-community-edition up -d
+```
 2# get cli access into gvmd
 
 as root
