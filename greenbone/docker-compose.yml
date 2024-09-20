@@ -1,10 +1,18 @@
-  notus-data:
-    image: greenbone/notus-data
-    volumes: greenbone/vulnerability-tests
-      - notus_data_vol:/mnt
+  services:
+  vulnerability-tests:
+    image: registry.community.greenbone.net/community/vulnerability-tests
+    environment:
       STORAGE_PATH: /var/lib/openvas/22.04/vt-data/nasl
+    volumes:
+      - vt_data_vol:/mnt
+
+  notus-data:
+    image: registry.community.greenbone.net/community/notus-data
+    volumes:
+      - notus_data_vol:/mnt
+
   scap-data:
-    image: greenbone/scap-data
+    image: registry.community.greenbone.net/community/scap-data
     volumes:
       - scap_data_vol:/mnt
 
