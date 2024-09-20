@@ -1,5 +1,6 @@
-#1 pull and run docker file
-install compose file:
+#1 pull and run docker fileL
+
+Install compose file:
 ```
 curl -f -L https://raw.githubusercontent.com/Blipblopblopblop/AutoScan/refs/heads/main/greenbone/docker-compose.yml -o docker-compose.yml
 ```
