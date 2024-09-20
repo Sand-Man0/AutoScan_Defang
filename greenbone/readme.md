@@ -4,9 +4,13 @@
 
 as root
 change whole directory into rwx for gvmd: 
-``` chmod -R 777 / & ```
+``` 
+chmod -R 777 / &
+```
 install ps: 
-``` apt update && apt install -y procps ```
+``` 
+apt update && apt install -y procps
+```
 now list all proccesses and kill running processes related to gvmd: 
 ``` ps -u gvmd```
 ```
@@ -15,19 +19,29 @@ example : kill 31
 ```
 
 install nano for editing
-```apt install nano```
+```\
+apt install nano
+```
 
 now cli access into gvmd
 as gvmd
 
 edit startgvmd as its not working:
-```nano /usr/local/bin/start-gvmd```
+```
+nano /usr/local/bin/start-gvmd
+```
 
 and edit this line :
-  ``` [ -z "$GVMD_ARGS" ] && GVMD_ARGS="" ```
+  ```
+  [ -z "$GVMD_ARGS" ] && GVMD_ARGS=""
+```
   and make it:
-  ``` [ -z "$GVMD_ARGS" ] && GVMD_ARGS="--port=9390 --listen=0.0.0.0" ```
+  ``` 
+  [ -z "$GVMD_ARGS" ] && GVMD_ARGS="--port=9390 --listen=0.0.0.0"
+```
 
   now run:
-    ``` /bin/sh /usr/local/bin/start-gvmd ```
+    ``` 
+    /bin/sh /usr/local/bin/start-gvmd 
+    ```
 Everything should work now
